@@ -6,7 +6,8 @@ import clsx from 'clsx';
 
 const links = [
     { name: 'Home', href: '/dashboard' },
-    { name: 'Favorites', href: '/favorites' }
+    { name: 'Favorites', href: '/dashboard/favorites' },
+    { name: 'Pet Details', href: 'dashboard/pet-details'} // can be accessed from clicking on a pet on the search results page, or by clikcing on a pet from your favorites page
 ];
 
 export default function NavLinks() {
