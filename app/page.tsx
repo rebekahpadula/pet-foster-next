@@ -4,7 +4,7 @@ import Link from "next/link";
 
 // this page is so annoying, i want this to be the dashboard, i dont really want a login page but ok
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Link
