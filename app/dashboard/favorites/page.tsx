@@ -1,3 +1,10 @@
+import PetPreview from '@/app/ui/pet-preview';
+
 export default function Page() {
-    return <p>Favorites Page</p>
+    return (
+        <div>
+            <p>Favorites Page</p>
+            <PetPreview></PetPreview>
+        </div>
+    )
 }
