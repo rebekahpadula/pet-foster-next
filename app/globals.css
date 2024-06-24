@@ -11,3 +11,8 @@ body {
     text-wrap: balance;
   }
 }
+
+.pet-preview__image {
+  height: auto;
+  width: auto;
+}

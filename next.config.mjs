@@ -4,10 +4,8 @@ const nextConfig = {
         remotePatterns: [
         {
             protocol: 'https',
-            hostname: 'placedog.net',
-            port: '',
-            pathname: '/300/300',
-        },
+            hostname: '**',
+        }
         ],
     },
 };
