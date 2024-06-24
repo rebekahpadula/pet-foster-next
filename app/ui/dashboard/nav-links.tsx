@@ -17,6 +17,9 @@ export default function NavLinks() {
 
     return (
         <>
+            <div className="app-header">
+                <h1>Pet Foster Next</h1>
+            </div>
             {links.map((link) => {
                 return (
                     <Link

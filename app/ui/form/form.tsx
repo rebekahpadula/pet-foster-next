@@ -2,7 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 // import PetPreview from '@/app/ui/pet-preview';
+import Dropdown from '@/app/ui/form/dropdown';
 import Image from 'next/image';
+import noImageAvailable from '@/public/no-image-available.png';
+import heartSvg from '@/public/heart.svg';
 
 export default function Form() {
     const [allSpecies, setAllSpecies] = useState();
@@ -48,6 +51,7 @@ export default function Form() {
 
     function search() {
         console.log(selectedSpecies);
+
         fetch(
             `https://api.rescuegroups.org/v5/public/animals/search/available/${selectedSpecies}`,
             fetchOptions,
@@ -64,19 +68,30 @@ export default function Form() {
                     return (
                         <article 
                             key={availablePet.id}
-                            className="pet-preview">
-                            <Image
-                                src={availablePet.attributes.pictureThumbnailUrl}
-                                alt=""
-                                className="pet-preview__image"
-                                width="100"
-                                height="100"
-                            /> 
-                            <h1>{availablePet.attributes.name}</h1>
-                            <ul>
-                                <li>Age: {availablePet.attributes.ageGroup}</li>
-                                <li>Breed: </li>
-                            </ul>
+                            className="pet-preview"
+                        >
+                            <div className="pet-preview__content">
+                                <Image
+                                    src={availablePet.attributes.pictureThumbnailUrl || noImageAvailable}
+                                    alt=""
+                                    className="pet-preview__image"
+                                    width="100"
+                                    height="100"
+                                /> 
+                                <h1>{availablePet.attributes.name}</h1>
+                                <ul>
+                                    <li>Age: {availablePet.attributes.ageGroup}</li>
+                                    <li>Breed: </li>
+                                </ul>
+                            </div>
+                            <button className="favorite-button">
+                                <Image
+                                    src={heartSvg}
+                                    alt=""
+                                    width="24"
+                                    height="24">
+                                </Image>
+                            </button>
                     </article>
                     )
                 })
@@ -91,7 +106,7 @@ export default function Form() {
 
     return (
         <>
-            <div>
+            <section className="form">
                 <label htmlFor="species">Species</label>
                 <select
                     id="species"
@@ -101,16 +116,15 @@ export default function Form() {
                     <option>Select</option>
                     {allSpecies}
                 </select>
-                <button onClick={search}>Search</button>
-                <section>
-                    {resultsLoaded ? (
-                        results
-                    ) : (
-                        <p>Select a type of pet so you can see all available babies</p>
-                    )}
-                </section>
-            </div>
-  
+                <button className="button" onClick={search}>Search</button>
+            </section>
+            <section className="results">
+                {resultsLoaded ? (
+                    results
+                ) : (
+                    <p>Select a type of pet so you can see all available babies</p>
+                )}
+            </section>
         </>
     );
 }
