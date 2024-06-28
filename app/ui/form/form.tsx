@@ -81,7 +81,7 @@ export default function Form() {
                                 <h1>{availablePet.attributes.name}</h1>
                                 <ul>
                                     <li>Age: {availablePet.attributes.ageGroup}</li>
-                                    <li>Breed: </li>
+                                    <li>Breed: {availablePet.attributes.breedSecondary || availablePet.attributes.breedString}</li>
                                 </ul>
                             </div>
                             <button className="favorite-button">

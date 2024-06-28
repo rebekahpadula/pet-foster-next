@@ -40,6 +40,12 @@ select {
 
 .favorite-button {
   align-self: end;
+  padding: 4px;
+}
+
+.favorite-button:hover {
+  background-color:rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
 }
 
 .app-header {
